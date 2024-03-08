@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
+    "@ngneat/hot-toast": "^7.0.0",
+    "@ngneat/overview": "^6.0.0",
     "@ngrx/operators": "^17.1.1",
     "@ngrx/signals": "^17.1.1",
     "rxjs": "~7.8.0",

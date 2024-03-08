@@ -6,6 +6,7 @@ import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { Task } from './models';
 import { TaskStore } from './store/task.store';
@@ -21,10 +22,11 @@ import { TaskStore } from './store/task.store';
     MatCheckboxModule,
     MatIconModule,
     MatCardModule,
+    MatProgressBarModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [TaskStore],
+  // providers: [TaskStore],
 })
 export class AppComponent {
   readonly store = inject(TaskStore);

@@ -1,5 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+@use '@ngneat/hot-toast/src/styles/styles.scss';
 @use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
@@ -19,7 +20,7 @@ $task-management-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$task-management-theme: mat.define-dark-theme(
+$task-management-theme: mat.define-light-theme(
   (
     color: (
       primary: $task-management-primary,
