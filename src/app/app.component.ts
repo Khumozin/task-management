@@ -7,9 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
-import { Task } from './models';
-import { TaskStore } from './store/task.store';
+import { Task } from '@models';
+import { TaskStore } from '@store';
 
 @Component({
   selector: 'app-root',
