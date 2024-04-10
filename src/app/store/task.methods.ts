@@ -1,12 +1,12 @@
 import { inject } from '@angular/core';
+import { Task } from '@models';
 import { HotToastService } from '@ngneat/hot-toast';
 import { tapResponse } from '@ngrx/operators';
 import { patchState, signalStoreFeature, type, withMethods } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { TaskService } from '@services';
 import { pipe, switchMap } from 'rxjs';
 
-import { Task } from '../models';
-import { TaskService } from '../services';
 import { TaskState } from './task.state';
 
 export function withTasksMethods() {
@@ -26,7 +26,7 @@ export function withTasksMethods() {
               return taskService.getTasks().pipe(
                 tapResponse({
                   next: (tasks) => patchState(store, { tasks }),
-                  error: console.log,
+                  error: console.error,
                   finalize: () => patchState(store, { loading: false }),
                 })
               );
@@ -65,11 +65,11 @@ export function withTasksMethods() {
 
                       hotToast.error(`
                         <strong>${message}</strong>
-                        ${errors?.map(e => `<p>${e}</p>`)}
+                        ${errors?.map((e) => `<p>${e}</p>`)}
                       `);
                     }
                   },
-                  error: console.log,
+                  error: console.error,
                   finalize: () => patchState(store, { loading: false }),
                 })
               );
@@ -94,7 +94,7 @@ export function withTasksMethods() {
 
                     patchState(store, { tasks: allTasks });
                   },
-                  error: console.log,
+                  error: console.error,
                   finalize: () => patchState(store, { loading: false }),
                 })
               );
@@ -114,7 +114,7 @@ export function withTasksMethods() {
                       tasks: [...store.tasks().filter((t) => t.id !== task.id)],
                     });
                   },
-                  error: console.log,
+                  error: console.error,
                   finalize: () => patchState(store, { loading: false }),
                 })
               );
