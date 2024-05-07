@@ -11,13 +11,9 @@ export const TaskStore = signalStore(
   withTasksMethods(),
   withHooks({
     onInit({ loadAllTasksByPromise: loadAllTasksByPromise }) {
-      console.log('on init');
-
       loadAllTasksByPromise();
     },
 
-    onDestroy() {
-      console.log('on destroy');
-    },
+    onDestroy() {},
   })
 );

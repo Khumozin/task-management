@@ -18,7 +18,9 @@ export function withTaskSelectors() {
         const completed = tasks().filter((t) => t.completed).length;
         const total = tasks().length;
 
-        if (total === 0) return 0;
+        if (total === 0) {
+          return 0;
+        }
 
         const perctage = (completed / total) * 100;
 

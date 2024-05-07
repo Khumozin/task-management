@@ -42,16 +42,16 @@ export function withTasksMethods() {
 
         addTask: rxMethod<string>(
           pipe(
-            switchMap((value) => {
+            switchMap((description) => {
               patchState(store, { loading: true });
 
-              return taskService.addTask(value).pipe(
+              return taskService.addTask(description).pipe(
                 tapResponse({
                   next: (res) => {
                     if (res.success) {
                       const addedTask: Task = {
                         id: res.id,
-                        description: value,
+                        description,
                         completed: false,
                       };
 
@@ -87,10 +87,10 @@ export function withTasksMethods() {
                   next: (task) => {
                     const allTasks = [...store.tasks()];
                     const index = allTasks.findIndex(
-                      (t) => t.id === updatedTask.id
+                      (t) => t.id === task.id
                     );
 
-                    allTasks[index] = updatedTask;
+                    allTasks[index] = task;
 
                     patchState(store, { tasks: allTasks });
                   },
