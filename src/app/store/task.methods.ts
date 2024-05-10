@@ -87,10 +87,10 @@ export function withTasksMethods() {
                   next: (task) => {
                     const allTasks = [...store.tasks()];
                     const index = allTasks.findIndex(
-                      (t) => t.id === task.id
+                      (t) => t.id === updatedTask.id
                     );
 
-                    allTasks[index] = task;
+                    allTasks[index] = updatedTask;
 
                     patchState(store, { tasks: allTasks });
                   },

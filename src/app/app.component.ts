@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
@@ -29,16 +29,18 @@ import { TaskStore } from '@store';
 })
 export class AppComponent {
   readonly store = inject(TaskStore);
+  readonly fb = inject(NonNullableFormBuilder);
 
-  form = new FormGroup({
-    taskValue: new FormControl<string>('', {
-      nonNullable: true,
-      validators: [Validators.required],
-    }),
-    completed: new FormControl<boolean>(false, { nonNullable: true }),
+  form = this.fb.group({
+    taskValue: ['', Validators.required],
+    completed: [false, Validators.required],
   });
 
   addTask(): void {
+    if (this.form.invalid) {
+      return this.form.markAllAsTouched();
+    }
+
     const { taskValue } = this.form.value;
 
     this.store.addTask(taskValue!);
