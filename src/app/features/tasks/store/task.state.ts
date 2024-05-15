@@ -1,4 +1,4 @@
-import { Task } from '@models';
+import { Task } from '../../tasks/models';
 
 export interface TaskState {
   tasks: Task[];
