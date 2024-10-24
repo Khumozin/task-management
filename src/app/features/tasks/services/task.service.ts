@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '@environments/environment.development';
-import { CreateApiResponse, Task } from '@models';
 import { lastValueFrom, Observable } from 'rxjs';
+
+import { CreateApiResponse, Task } from '../../tasks/models';
 
 @Injectable({
   providedIn: 'root',

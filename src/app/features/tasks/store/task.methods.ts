@@ -1,12 +1,12 @@
 import { inject } from '@angular/core';
-import { Task } from '@models';
 import { HotToastService } from '@ngneat/hot-toast';
 import { tapResponse } from '@ngrx/operators';
 import { patchState, signalStoreFeature, type, withMethods } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { TaskService } from '@services';
 import { pipe, switchMap } from 'rxjs';
 
+import { Task } from '../../tasks/models';
+import { TaskService } from '../../tasks/services';
 import { TaskState } from './task.state';
 
 export function withTasksMethods() {
