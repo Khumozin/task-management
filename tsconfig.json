@@ -25,9 +25,7 @@
     ],
     "baseUrl": "./src",
     "paths": {
-      "@models": ["app/models/index.ts"],
-      "@services": ["app/services/index.ts"],
-      "@store": ["app/store/index.ts"],
+      "@feature/tasks": ["app/features/tasks/index"],
       "@environments/*": ["environments/*"],
     }
   },
